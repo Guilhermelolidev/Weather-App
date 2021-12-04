@@ -1,8 +1,10 @@
-.container {
-  padding: 0 2rem;
-}
+import { css } from '@emotion/react'
 
-.main {
+const container = css`
+  padding: 0 2rem;
+`;
+
+const main = css`
   min-height: 100vh;
   padding: 4rem 0;
   flex: 1;
@@ -10,70 +12,69 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+`
 
-.footer {
+const footer = css`
   display: flex;
   flex: 1;
   padding: 2rem 0;
   border-top: 1px solid #eaeaea;
   justify-content: center;
   align-items: center;
-}
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+  }
+`
 
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-}
-
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
-}
-
-.title {
+const title = css`
   margin: 0;
   line-height: 1.15;
   font-size: 4rem;
-}
-
-.title,
-.description {
   text-align: center;
-}
+`
 
-.description {
-  margin: 4rem 0;
+const titleLink = css`
+  color: #0070f3;
+  text-decoration: none;
+
+  &:hover, :focus, :active {
+    text-decoration: underline;
+  }
+`
+
+const description = css`
   line-height: 1.5;
   font-size: 1.5rem;
-}
+  text-align: center;
+`
 
-.code {
+
+const code = css`
   background: #fafafa;
   border-radius: 5px;
   padding: 0.75rem;
   font-size: 1.1rem;
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
     Bitstream Vera Sans Mono, Courier New, monospace;
-}
+`
 
-.grid {
+const grid = css`
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   max-width: 800px;
-}
 
-.card {
+  @media (max-width: 600px) {
+    width: 100%;
+    flex-direction: column;
+  }
+`
+
+const card = css `
   margin: 1rem;
   padding: 1.5rem;
   text-align: left;
@@ -83,34 +84,28 @@
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
   max-width: 300px;
-}
 
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
-}
+  &:hover, ::focus, :active {
+    color: #0070f3;
+    border-color: #0070f3;
+  }
 
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
-}
+  h2 {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+  }
 
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
-}
+  p {
+    margin: 0;
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
 
-.logo {
+`
+
+const logo = css`
   height: 1em;
   margin-left: 0.5rem;
-}
+`
 
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
-}
+export { container,  main, footer, title,  titleLink, description,code, grid,  card, logo }
