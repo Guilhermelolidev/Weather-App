@@ -4,6 +4,7 @@ import Head from "next/head";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from "../themes/index";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 export default function MyApp(props: any) {
   const { Component, pageProps } = props;
@@ -16,8 +17,10 @@ export default function MyApp(props: any) {
     }
   }, []);
 
+  const queryClient = new QueryClient();
+
   return (
-    <React.Fragment>
+    <QueryClientProvider client={queryClient}>
       <Head>
         <title>My page</title>
         <meta
@@ -30,7 +33,7 @@ export default function MyApp(props: any) {
         <CssBaseline />
         <Component {...pageProps} />
       </ThemeProvider>
-    </React.Fragment>
+    </QueryClientProvider>
   );
 }
 
