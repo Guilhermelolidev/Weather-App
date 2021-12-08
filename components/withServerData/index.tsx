@@ -27,9 +27,10 @@ function withServerData<T>(
 
     const newPath = `${path.BASE_URL}${city},${country.code}&APPID=${path.APP_ID}&units=${unitFormat}`;
 
+    //unit works as a clearCache and refetches the new unit to update the UI
     const { data, isError, isLoading } = useServerData({
       newPath,
-      queryKey,
+      queryKey: unit,
     });
 
     if (isError) return <div>error</div>;

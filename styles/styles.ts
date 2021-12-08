@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 
 const main = css`
-  min-height: 100vh;
+  min-height: 90vh;
   padding: 4rem 0;
   flex: 1;
   display: flex;
@@ -81,6 +81,12 @@ const cityInputStyle = css`
   width: 45%;
 `;
 
+const refreshButtonStyle = css`
+  margin-bottom: 5px;
+  height: 40px;
+  width: 150px;
+`;
+
 const countrySelectStyle = css`
   width: 55%;
 
@@ -94,9 +100,12 @@ const barChartWrapperStyle = css`
   height: 50vh;
 `;
 
-const controlsWrapperStyle = css`
-  background: green;
+const controlsGridStyle = css`
   height: 10vh;
+`;
+
+const controlsWrapperStyle = css`
+  display: flex;
 `;
 
 const weatherSliderWrapperStyle = css`
@@ -124,6 +133,10 @@ const aditionalContentWeatherBoxStyle = css`
   justify-content: center;
 `;
 
+const rowRadioUnitsStyle = css`
+  margin: 40px 20px 0;
+`;
+
 /* *****************************************  LIBRARIES OVERRIDES  ***************************************** */
 
 const carouselStyle = css`
@@ -137,11 +150,14 @@ export {
   aditionalContentWeatherBoxStyle,
   barChartWrapperStyle,
   carouselStyle,
+  controlsGridStyle,
   controlsWrapperStyle,
   countrySelectStyle,
   cityInputStyle,
   dailyWeatherBoxStyle,
   mainContentWeatherBoxStyle,
+  refreshButtonStyle,
+  rowRadioUnitsStyle,
   main,
   footer,
   title,
