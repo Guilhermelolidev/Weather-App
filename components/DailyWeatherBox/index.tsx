@@ -10,7 +10,8 @@ import {
 } from "../../styles/styles";
 
 const DailyWeatherBox = ({ singleDay }) => {
-  const { weather, main, currentDay } = useSingleDayFormatter({ singleDay });
+  const { weather, main, currentDay, temperatureSymbol } =
+    useSingleDayFormatter({ singleDay });
 
   return (
     <Box
@@ -21,7 +22,7 @@ const DailyWeatherBox = ({ singleDay }) => {
     >
       <div css={aditionalContentWeatherBoxStyle}>{weather.description}</div>
       <div css={mainContentWeatherBoxStyle}>
-        {parseInt(main.temp)} °C
+        {parseInt(main.temp)} {temperatureSymbol}
         <img
           loading="lazy"
           width="80"
