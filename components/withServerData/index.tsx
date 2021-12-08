@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import useServerData from "./useServerData";
 import Loading from "../Loading";
-import { useRouter } from "next/router";
+import { defaultOptionsContext } from "../../context/defaultOptions";
 
 interface withServerDataInterface<T extends string> {
   queryKey?: string;
@@ -17,10 +17,15 @@ function withServerData<T>(
   { path, queryKey }: withServerDataProps
 ) {
   const ComponentWithServerData = (props: any) => {
-    const router = useRouter();
-    const { city, country } = router.query;
+    // We have 2 options to mount the path for fetch
+    // the first one using useRouter from next/router and getting queryParams
+    // second is getting values from the defaultOptionsContext
 
-    const newPath = `${path.BASE_URL}${city},${country}&APPID=${path.APP_ID}&${path.EXTRA_OPTIONS}`;
+    const { city, country, unit } = useContext(defaultOptionsContext);
+
+    const unitFormat = path.EXTRA_OPTIONS === unit ? path.EXTRA_OPTIONS : unit;
+
+    const newPath = `${path.BASE_URL}${city},${country.code}&APPID=${path.APP_ID}&units=${unitFormat}`;
 
     const { data, isError, isLoading } = useServerData({
       newPath,
