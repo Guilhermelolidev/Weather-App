@@ -4,10 +4,13 @@ import Head from "next/head";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import theme from "../themes/index";
+import { OptionsProvider } from "../context/defaultOptions";
 import { QueryClient, QueryClientProvider } from "react-query";
+import useHomeHandler from "./useHomeHandler";
 
 export default function MyApp(props: any) {
   const { Component, pageProps } = props;
+  const { myApplicationState, setUnit, onSubmitSearch } = useHomeHandler();
 
   React.useEffect(() => {
     // Remove the server-side injected CSS.
@@ -30,8 +33,12 @@ export default function MyApp(props: any) {
       </Head>
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-        <CssBaseline />
-        <Component {...pageProps} />
+        <OptionsProvider
+          value={{ ...myApplicationState, setUnit, onSubmitSearch }}
+        >
+          <CssBaseline />
+          <Component {...pageProps} />
+        </OptionsProvider>
       </ThemeProvider>
     </QueryClientProvider>
   );
