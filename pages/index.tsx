@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
@@ -17,8 +18,11 @@ import TextField from "@mui/material/TextField";
 import CountrySelect from "../components/Input/CountrySelect";
 import useHomeHandler from "./useHomeHandler";
 import ButtonRouter from "../components/Button/ButtonRouter";
+import { defaultOptionsContext } from "../context/defaultOptions";
 
 const Home: NextPage = () => {
+  const { onSubmitSearch } = useContext(defaultOptionsContext);
+
   const { country, city, isSearchFieldsFilled, setCountry, setCity } =
     useHomeHandler();
 
@@ -49,6 +53,7 @@ const Home: NextPage = () => {
         <ButtonRouter
           fullWidth
           variant="contained"
+          onClick={() => onSubmitSearch({ country, city })}
           disabled={!isSearchFieldsFilled}
           path={`/results?city=${city}&country=${country.code?.toLowerCase()}`}
         >

@@ -7,6 +7,7 @@ type ButtonRouterProps = {
   variant: "contained" | "outlined" | "text";
   path: string;
   disabled: boolean;
+  onClick: () => void;
   children: React.ReactNode;
 };
 
@@ -16,6 +17,7 @@ const ButtonRouter = ({
   path,
   disabled,
   children,
+  onClick,
 }: ButtonRouterProps) => {
   const router = useRouter();
 
@@ -23,7 +25,10 @@ const ButtonRouter = ({
     <Button
       fullWidth={fullWidth}
       disabled={disabled}
-      onClick={() => router.push(path, undefined, { shallow: true })}
+      onClick={() => {
+        onClick();
+        router.push(path, undefined, { shallow: true });
+      }}
       variant={variant}
     >
       {children}
