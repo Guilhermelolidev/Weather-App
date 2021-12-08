@@ -23,7 +23,7 @@ const Home: NextPage = () => {
     useHomeHandler();
 
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="md">
       <Head>
         <title>Weather App</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />

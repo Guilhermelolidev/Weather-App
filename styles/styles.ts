@@ -124,9 +124,19 @@ const aditionalContentWeatherBoxStyle = css`
   justify-content: center;
 `;
 
+/* *****************************************  LIBRARIES OVERRIDES  ***************************************** */
+
+const carouselStyle = css`
+  align-items: center;
+  display: inline-grid;
+  text-align: center;
+  width: 100%;
+`;
+
 export {
   aditionalContentWeatherBoxStyle,
   barChartWrapperStyle,
+  carouselStyle,
   controlsWrapperStyle,
   countrySelectStyle,
   cityInputStyle,

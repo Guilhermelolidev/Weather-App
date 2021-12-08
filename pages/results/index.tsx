@@ -4,11 +4,15 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import {
   barChartWrapperStyle,
+  carouselStyle,
   controlsWrapperStyle,
   weatherSliderWrapperStyle,
 } from "../../styles/styles";
 import DailyWeatherBox from "../../components/DailyWeatherBox";
 import useResultsAndBuildArray from "./useResultsAndBuildDays";
+import Carousel from "react-material-ui-carousel";
+import ArrowLeftOutlinedIcon from "@mui/icons-material/ArrowLeftOutlined";
+import ArrowRightOutlinedIcon from "@mui/icons-material/ArrowRightOutlined";
 
 const ResultsContainer = ({ list, city: cityInfo }) => {
   const { weatherPeriodsGroupedByDay } = useResultsAndBuildArray({
@@ -17,7 +21,7 @@ const ResultsContainer = ({ list, city: cityInfo }) => {
   });
 
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="md">
       <Grid container>
         <Box
           height="100vh"
@@ -34,9 +38,25 @@ const ResultsContainer = ({ list, city: cityInfo }) => {
             CONTROLS CONTROLS CONTROLS
           </Grid>
           <Grid css={weatherSliderWrapperStyle} container>
-            {weatherPeriodsGroupedByDay.slice(0, 2).map((singleDay, index) => (
-              <DailyWeatherBox key={index} singleDay={singleDay} />
-            ))}
+            <Carousel
+              css={carouselStyle}
+              navButtonsAlwaysVisible
+              autoPlay={false}
+              indicators={false}
+              NextIcon={<ArrowRightOutlinedIcon />}
+              PrevIcon={<ArrowLeftOutlinedIcon />}
+            >
+              {weatherPeriodsGroupedByDay
+                .slice(0, 3)
+                .map((singleDay, index) => (
+                  <DailyWeatherBox key={index} singleDay={singleDay} />
+                ))}
+              {weatherPeriodsGroupedByDay
+                .slice(3, 5)
+                .map((singleDay, index) => (
+                  <DailyWeatherBox key={index} singleDay={singleDay} />
+                ))}
+            </Carousel>
           </Grid>
           <Grid
             css={barChartWrapperStyle}
