@@ -1,9 +1,9 @@
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
 
 const getListOfDaysAvailable = (list: { dt_txt: string }[]) =>
   list.map((itemList) => itemList.dt_txt.split(" ")[0]);
 
-const useResultsAndBuildArray = ({ list, cityInfo }) => {
+const useListToBuildDays = ({ list, cityInfo }) => {
   const listOfDaysAvailable = getListOfDaysAvailable(list);
 
   const uniqueDays = useMemo(
@@ -28,4 +28,4 @@ const useResultsAndBuildArray = ({ list, cityInfo }) => {
   return { weatherPeriodsGroupedByDay };
 };
 
-export default useResultsAndBuildArray;
+export default useListToBuildDays;

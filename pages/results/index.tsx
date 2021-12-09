@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import withServerData from "../../components/withServerData";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
@@ -10,18 +9,29 @@ import {
   controlsWrapperStyle,
   weatherSliderWrapperStyle,
 } from "../../styles/styles";
-import DailyWeatherBox from "../../components/DailyWeatherBox";
-import useResultsAndBuildArray from "./useResultsAndBuildDays";
+
+import useListToBuildDays from "./useListToBuildDays";
 import RowRadioGroupUnits from "../../components/Input/RowRadioGroupUnits";
 import Carousel from "react-material-ui-carousel";
 import ArrowLeftOutlinedIcon from "@mui/icons-material/ArrowLeftOutlined";
 import ArrowRightOutlinedIcon from "@mui/icons-material/ArrowRightOutlined";
-import { defaultOptionsContext } from "../../context/defaultOptions";
+import BarChartTwoToneIcon from "@mui/icons-material/BarChartTwoTone";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import useCarouselResults from "./useCarouselResults";
 
 const ResultsContainer = ({ list, city: cityInfo }) => {
-  const { weatherPeriodsGroupedByDay } = useResultsAndBuildArray({
+  const isMediumDevices = useMediaQuery("(max-width:900px)");
+  const isSmallDevices = useMediaQuery("(max-width:600px)");
+
+  const { weatherPeriodsGroupedByDay } = useListToBuildDays({
     list,
     cityInfo,
+  });
+
+  const { items } = useCarouselResults({
+    isMediumDevices,
+    isSmallDevices,
+    weatherPeriodsGroupedByDay,
   });
 
   return (
@@ -36,7 +46,6 @@ const ResultsContainer = ({ list, city: cityInfo }) => {
           >
             <Box
               css={controlsWrapperStyle}
-              width="75%"
               justifyContent="flex-end"
               alignItems="flex-end"
             >
@@ -52,16 +61,7 @@ const ResultsContainer = ({ list, city: cityInfo }) => {
               NextIcon={<ArrowRightOutlinedIcon />}
               PrevIcon={<ArrowLeftOutlinedIcon />}
             >
-              {weatherPeriodsGroupedByDay
-                .slice(0, 3)
-                .map((singleDay, index) => (
-                  <DailyWeatherBox key={index} singleDay={singleDay} />
-                ))}
-              {weatherPeriodsGroupedByDay
-                .slice(3, 5)
-                .map((singleDay, index) => (
-                  <DailyWeatherBox key={index} singleDay={singleDay} />
-                ))}
+              {items}
             </Carousel>
           </Grid>
           <Grid
@@ -70,8 +70,7 @@ const ResultsContainer = ({ list, city: cityInfo }) => {
             justifyContent="center"
             alignItems="center"
           >
-            BAR CHART COMPONENT <br /> BAR CHART COMPONENT <br /> BAR CHART
-            COMPONENT <br />
+            <BarChartTwoToneIcon color="primary" sx={{ fontSize: 400 }} />
           </Grid>
         </Box>
       </Grid>
