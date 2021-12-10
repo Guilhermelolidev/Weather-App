@@ -17,11 +17,11 @@ const useCarouselResults = ({
 
   const items: Array<any> = [];
 
-  for (let i = 0; i < weatherPeriodsGroupedByDay.length; i += sliderItems) {
+  for (let i = 0; i < weatherPeriodsGroupedByDay?.length; i += sliderItems) {
     if (i % sliderItems === 0) {
       items.push(
         weatherPeriodsGroupedByDay
-          .slice(i, i + sliderItems)
+          ?.slice(i, i + sliderItems)
           .map((singleDay, index) => {
             return <DailyWeatherBox key={index} singleDay={singleDay} />;
           })

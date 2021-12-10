@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactChild } from "react";
 import PropTypes from "prop-types";
 import Head from "next/head";
 import { ThemeProvider } from "@mui/material/styles";
@@ -20,28 +20,38 @@ export default function MyApp(props: any) {
     }
   }, []);
 
+  function SafeHydrate({ children }: any) {
+    return (
+      <div suppressHydrationWarning>
+        {typeof window === "undefined" ? null : children}
+      </div>
+    );
+  }
+
   const queryClient = new QueryClient();
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <Head>
-        <title>My page</title>
-        <meta
-          name="viewport"
-          content="minimum-scale=1, initial-scale=1, width=device-width"
-        />
-      </Head>
-      <ThemeProvider theme={theme}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-        <OptionsProvider
-          // @ts-ignore
-          value={{ ...myApplicationState, setUnit, onSubmitSearch }}
-        >
-          <CssBaseline />
-          <Component {...pageProps} />
-        </OptionsProvider>
-      </ThemeProvider>
-    </QueryClientProvider>
+    <SafeHydrate>
+      <QueryClientProvider client={queryClient}>
+        <Head>
+          <title>My page</title>
+          <meta
+            name="viewport"
+            content="minimum-scale=1, initial-scale=1, width=device-width"
+          />
+        </Head>
+        <ThemeProvider theme={theme}>
+          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+          <OptionsProvider
+            // @ts-ignore
+            value={{ ...myApplicationState, setUnit, onSubmitSearch }}
+          >
+            <CssBaseline />
+            <Component {...pageProps} />
+          </OptionsProvider>
+        </ThemeProvider>
+      </QueryClientProvider>
+    </SafeHydrate>
   );
 }
 
