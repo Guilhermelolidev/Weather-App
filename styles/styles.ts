@@ -18,10 +18,21 @@ const footer = css`
   justify-content: space-between;
   align-items: center;
 
+  @media (max-width: 600px) {
+    span {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
   a {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media (max-width: 600px) {
+      display: none;
+    }
   }
 `;
 
@@ -85,6 +96,10 @@ const refreshButtonStyle = css`
   margin-bottom: 5px;
   height: 40px;
   width: 150px;
+
+  @media (max-width: 600px) {
+    width: 60px;
+  }
 `;
 
 const countrySelectStyle = css`
@@ -96,7 +111,7 @@ const countrySelectStyle = css`
 `;
 
 const barChartWrapperStyle = css`
-  background: #d3e351;
+  background: rgba(252, 252, 252, 0.55);
   height: 50vh;
 `;
 
@@ -106,6 +121,16 @@ const controlsGridStyle = css`
 
 const controlsWrapperStyle = css`
   display: flex;
+  width: 75%;
+
+  @media (max-width: 900px) {
+    width: 100%;
+
+    label,
+    button {
+      margin: 0 20px;
+    }
+  }
 `;
 
 const weatherSliderWrapperStyle = css`
@@ -135,6 +160,11 @@ const aditionalContentWeatherBoxStyle = css`
 
 const rowRadioUnitsStyle = css`
   margin: 40px 20px 0;
+
+  @media (max-width: 900px) {
+    align-items: center;
+    width: 100%;
+  }
 `;
 
 /* *****************************************  LIBRARIES OVERRIDES  ***************************************** */
