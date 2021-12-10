@@ -6,11 +6,13 @@ type countryType = {
   phone?: string;
 };
 
-interface applicationState {
+interface IapplicationState {
   unit: string;
   city: string;
   country: countryType;
 }
+
+type TypeOnSubmit = Omit<IapplicationState, "unit">;
 
 const countryDefaultState = {
   code: "",
@@ -26,7 +28,7 @@ const INITIAL_STATE = {
 
 const useHomeHandler = () => {
   const [myApplicationState, setMyApplicationState] =
-    useState<applicationState>(INITIAL_STATE);
+    useState<IapplicationState>(INITIAL_STATE);
 
   const [city, setCity] = useState<string>("");
   const [country, setCountry] = useState<countryType>(countryDefaultState);
@@ -36,7 +38,7 @@ const useHomeHandler = () => {
       return { ...prevState, unit };
     });
 
-  const onSubmitSearch = ({ country, city }) =>
+  const onSubmitSearch = ({ country, city }: TypeOnSubmit) =>
     setMyApplicationState((prevState) => {
       return { ...prevState, country, city };
     });

@@ -2,11 +2,24 @@ import { useContext } from "react";
 import { formatDate } from "../../utils/formatters";
 import { defaultOptionsContext } from "../../context/defaultOptions";
 
-const renderTemperatureSymbol = (unit) => {
+const renderTemperatureSymbol = (unit: string) => {
   return unit === "metric" ? "°C" : "°F";
 };
 
-const useSingleDayFormatter = ({ singleDay }) => {
+interface EnumSingleDayItem {
+  singleDay: {
+    clouds: object;
+    dt: number;
+    dt_txt: string;
+    main: object;
+    sys: object;
+    visibility: number;
+    weather: object;
+    wind: object;
+  };
+}
+
+const useSingleDayFormatter = ({ singleDay }: EnumSingleDayItem) => {
   const { unit } = useContext(defaultOptionsContext);
 
   const currentDay = formatDate(Object.keys(singleDay).toString());
@@ -26,3 +39,4 @@ const useSingleDayFormatter = ({ singleDay }) => {
 };
 
 export default useSingleDayFormatter;
+export type { EnumSingleDayItem };

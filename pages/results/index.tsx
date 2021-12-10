@@ -18,14 +18,14 @@ import ArrowRightOutlinedIcon from "@mui/icons-material/ArrowRightOutlined";
 import BarChartTwoToneIcon from "@mui/icons-material/BarChartTwoTone";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import useCarouselResults from "./useCarouselResults";
+import type { resultsFromFetch } from "./types";
 
-const ResultsContainer = ({ list, city: cityInfo }) => {
+const ResultsContainer = ({ list }: resultsFromFetch) => {
   const isMediumDevices = useMediaQuery("(max-width:900px)");
   const isSmallDevices = useMediaQuery("(max-width:600px)");
 
   const { weatherPeriodsGroupedByDay } = useListToBuildDays({
     list,
-    cityInfo,
   });
 
   const { items } = useCarouselResults({

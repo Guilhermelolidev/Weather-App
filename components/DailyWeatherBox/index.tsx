@@ -2,14 +2,16 @@
 
 import * as React from "react";
 import Box from "@mui/material/Box";
-import useSingleDayFormatter from "./useSingleDayFormatter";
+import useSingleDayFormatter, {
+  EnumSingleDayItem,
+} from "./useSingleDayFormatter";
 import {
   aditionalContentWeatherBoxStyle,
   dailyWeatherBoxStyle,
   mainContentWeatherBoxStyle,
 } from "../../styles/styles";
 
-const DailyWeatherBox = ({ singleDay }) => {
+function DailyWeatherBox({ singleDay }: EnumSingleDayItem) {
   const { weather, main, currentDay, temperatureSymbol } =
     useSingleDayFormatter({ singleDay });
 
@@ -34,6 +36,6 @@ const DailyWeatherBox = ({ singleDay }) => {
       <div css={aditionalContentWeatherBoxStyle}>{currentDay}</div>
     </Box>
   );
-};
+}
 
 export default DailyWeatherBox;
