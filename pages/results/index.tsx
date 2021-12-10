@@ -81,7 +81,7 @@ const ResultsContainer = ({ list }: resultsFromFetch) => {
 const ResultsContainerWithData = withServerData(ResultsContainer, {
   path: {
     BASE_URL: "https://api.openweathermap.org/data/2.5/forecast?q=",
-    APP_ID: "75f972b80e26f14fe6c920aa6a85ad57",
+    APP_ID: "1fc5defee41c2f14f7b26ec1d181f823",
     UNIT_OPTION: "metric",
   },
 });
