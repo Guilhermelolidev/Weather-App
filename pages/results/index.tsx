@@ -18,7 +18,7 @@ import ArrowRightOutlinedIcon from "@mui/icons-material/ArrowRightOutlined";
 import BarChartTwoToneIcon from "@mui/icons-material/BarChartTwoTone";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import useCarouselResults from "./useCarouselResults";
-import type { resultsFromFetch } from "./types";
+import type { resultsFromFetch } from "../../types/types";
 
 const ResultsContainer = ({ list }: resultsFromFetch) => {
   const isMediumDevices = useMediaQuery("(max-width:900px)");
