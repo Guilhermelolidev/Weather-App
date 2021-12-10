@@ -31,7 +31,7 @@
     <a href="#"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="#">View Demo</a>
+    <a href="https://next-js-weatherapp-con8f7swt-yuripramos.vercel.app">View Demo</a>
     ·
     <a href=#>Report Bug</a>
 
@@ -68,15 +68,15 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://i.ibb.co/PWmM2Dq/Screen-Shot-2021-12-10-at-09-10-08.png)
+![](https://i.ibb.co/RHcHmVX/screenshot-weather-app.png)
 
 This POC (proof of concept) is made with some cool features to display the weather choosing any city in the world! and here's the POC can turns into an amazing app
 
 Here's why:
 
-- It's developed to be scalable and implement new features a long the way
-- It uses the DRY in the entire app
-- it's already deployed in SSR :smile:
+- It's developed to be scalable and implement new features along the way
+- It implements the DRY in the entire app
+- it's ready to SSR :smile:
 
 Of course, there's a bunch of stuff to do (if you are curious about what, check the <a href="#roadmap">Roadmap</a>)
 
@@ -113,18 +113,13 @@ Start installing node and yarn (preferably). If you are using an old version of 
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/yuripramos/nextJS-weatherapp.git
    ```
-3. Install NPM packages
+2. Install NPM packages
    ```sh
    yarn
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = "ENTER YOUR API";
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -200,7 +195,7 @@ Yuri Ramos - [Yuri](https://stackoverflow.com/users/4534940/yuri-ramos) - yuri.p
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+<!-- [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
 [contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
 [forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
@@ -212,4 +207,4 @@ Yuri Ramos - [Yuri](https://stackoverflow.com/users/4534940/yuri-ramos) - yuri.p
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: images/screenshot.png -->
