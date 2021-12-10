@@ -1,10 +1,9 @@
 import { useMemo } from "react";
-import type { listType } from "./types";
 
 const getListOfDaysAvailable = (list: { dt_txt: string }[]) =>
   list.map((itemList) => itemList.dt_txt.split(" ")[0]);
 
-const useListToBuildDays = ({ list }: listType) => {
+const useListToBuildDays = ({ list }: any) => {
   const listOfDaysAvailable = getListOfDaysAvailable(list);
 
   const uniqueDays = useMemo(

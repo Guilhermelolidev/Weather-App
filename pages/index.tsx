@@ -55,7 +55,7 @@ const Home: NextPage = () => {
           variant="contained"
           onClick={() => onSubmitSearch({ country, city })}
           disabled={!isSearchFieldsFilled}
-          path={`/results?city=${city}&country=${country.code?.toLowerCase()}`}
+          path={`/results?city=${city}&country=${country?.code?.toLowerCase()}`}
         >
           Search
         </ButtonRouter>

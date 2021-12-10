@@ -1,34 +1,34 @@
 import { css } from "@emotion/react";
 
 const main = css`
-  min-height: 90vh;
-  padding: 4rem 0;
-  flex: 1;
+  align-items: center;
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  min-height: 90vh;
+  padding: 4rem 0;
 `;
 
 const footer = css`
+  align-items: center;
+  border-top: 1px solid #eaeaea;
   display: flex;
+  justify-content: space-between;
   flex: 1;
   padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: space-between;
-  align-items: center;
 
   @media (max-width: 600px) {
     span {
-      width: 100%;
       text-align: center;
+      width: 100%;
     }
   }
 
   a {
+    align-items: center;
     display: flex;
     justify-content: center;
-    align-items: center;
 
     @media (max-width: 600px) {
       display: none;
@@ -37,9 +37,9 @@ const footer = css`
 `;
 
 const title = css`
+  font-size: 4rem;
   margin: 0;
   line-height: 1.15;
-  font-size: 4rem;
   text-align: center;
 `;
 
@@ -55,23 +55,23 @@ const titleLink = css`
 `;
 
 const description = css`
-  line-height: 1.5;
   font-size: 1.5rem;
+  line-height: 1.5;
   text-align: center;
 `;
 
 const grid = css`
-  display: flex;
   align-items: center;
-  justify-content: center;
+  display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 50px;
   min-width: 300px;
   width: 100%;
-  margin-bottom: 50px;
 
   @media (max-width: 600px) {
-    width: 100%;
     flex-direction: column;
+    width: 100%;
   }
 `;
 
@@ -93,8 +93,8 @@ const cityInputStyle = css`
 `;
 
 const refreshButtonStyle = css`
-  margin-bottom: 5px;
   height: 40px;
+  margin-bottom: 5px;
   width: 150px;
 
   @media (max-width: 600px) {
@@ -147,10 +147,10 @@ const dailyWeatherBoxStyle = css`
 `;
 
 const mainContentWeatherBoxStyle = css`
-  width: 100%;
-  display: inline-flex;
   align-items: center;
+  display: inline-flex;
   justify-content: space-between;
+  width: 100%;
 `;
 
 const aditionalContentWeatherBoxStyle = css`

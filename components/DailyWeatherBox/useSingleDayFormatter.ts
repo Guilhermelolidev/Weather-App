@@ -14,7 +14,7 @@ interface EnumSingleDayItem {
     main: object;
     sys: object;
     visibility: number;
-    weather: object;
+    weather: any;
     wind: object;
   };
 }

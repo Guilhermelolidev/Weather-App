@@ -17,7 +17,7 @@ const CountrySelect = ({ setCountry }: any) => {
       id="country-select-demo"
       options={countries}
       autoHighlight
-      onChange={(event: any, newValue: string | null) => {
+      onChange={(event: any, newValue: object | null) => {
         setCountry(newValue);
       }}
       renderOption={(props, option) => (

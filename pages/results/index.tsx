@@ -25,6 +25,7 @@ const ResultsContainer = ({ list }: resultsFromFetch) => {
   const isSmallDevices = useMediaQuery("(max-width:600px)");
 
   const { weatherPeriodsGroupedByDay } = useListToBuildDays({
+    // @ts-ignore
     list,
   });
 

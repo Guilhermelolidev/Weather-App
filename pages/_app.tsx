@@ -16,7 +16,7 @@ export default function MyApp(props: any) {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector("#jss-server-side");
     if (jssStyles) {
-      jssStyles.parentElement.removeChild(jssStyles);
+      jssStyles?.parentElement?.removeChild(jssStyles);
     }
   }, []);
 
@@ -34,6 +34,7 @@ export default function MyApp(props: any) {
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <OptionsProvider
+          // @ts-ignore
           value={{ ...myApplicationState, setUnit, onSubmitSearch }}
         >
           <CssBaseline />
