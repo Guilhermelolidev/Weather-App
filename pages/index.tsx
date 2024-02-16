@@ -73,7 +73,7 @@ const Home: NextPage = () => {
             <img src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
-        <span>Made with ❤️ by Yuri Ramos</span>
+        <span>Made with ❤️ by Guilherme Loli</span>
       </footer>
     </Container>
   );
